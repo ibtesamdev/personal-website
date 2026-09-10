@@ -1,0 +1,15 @@
+{
+  "name": "personal-website",
+  "compatibility_date": "2026-09-01",
+  "main": "worker.js",
+  "assets": {
+    // Serve every file in the repo root as before (index.html,
+    // weather/index.html, etc.) via env.ASSETS in worker.js.
+    "directory": "./",
+    "binding": "ASSETS",
+    // Without this, static-asset requests bypass worker.js entirely and
+    // go straight to Cloudflare's CDN — the password check below would
+    // never run. This forces every request through the Worker first.
+    "run_worker_first": true
+  }
+}
